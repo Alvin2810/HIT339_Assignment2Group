@@ -1,0 +1,96 @@
+﻿@model dynamic
+@using Microsoft.AspNetCore.Identity
+@using System.Collections;
+@using System.Collections.Generic;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> Rolemanager
+@{
+    ViewData["Title"] = "Schedules";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{var number = 0; }
+@if (SignInManager.IsSignedIn(User))
+{
+    <h1>Schedules</h1>
+    @if (this.User.IsInRole("Admin"))
+    {
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
+
+
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Coach
+                </th>
+                <th>
+                   Time
+                </th>
+                <th>
+                    Location
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Schedules schedule in Model.schedules)
+            {
+            <tr>
+                <td>
+                    @schedule.Date
+                </td>
+                <td>
+                    @schedule.Coach
+                </td>
+                <td>
+                    @schedule.Time
+                </td>
+                <td>
+                    @schedule.Location
+                </td>
+                @if (this.User.IsInRole("Admin"))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@schedule.Id">Edit</a> |
+
+                        <a asp-action="Delete" asp-route-id="@schedule.Id">Delete</a>
+                    </td>
+
+                }
+
+                @if (this.User.IsInRole("Member"))
+                {
+                    foreach (MemberEnrol item in Model.userschedule)
+                    {
+                        if (schedule.Id == item.ScheduleId)
+                        {
+                            number += 1;
+                        }
+                    }
+                    if (number == 1)
+                    {
+                        <td>Enrolled</td>
+                    }
+                    else
+                    {
+                        <td><a asp-action="Enrol" asp-route-id="@schedule.Id">Enrol to Schedule</a></td>
+                    }
+                    number = 0;
+                }
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+}
