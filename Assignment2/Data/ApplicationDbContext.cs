@@ -15,5 +15,6 @@ namespace Assignment1.Data
         }
         public DbSet<Assignment1.Models.Schedules> Schedules { get; set; }
         public DbSet<Assignment1.Models.MemberEnrol> MemberEnrol { get; set; }
+        public DbSet<Assignment1.Models.Coaches> Coaches { get; set; }
     }
 }

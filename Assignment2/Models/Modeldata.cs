@@ -23,4 +23,14 @@ namespace Assignment1.Models
 
         public string Member { get; set; }
     }
+
+    public class Coaches
+    {
+        public int Id { get; set; }
+        public string Fname { get; set; }
+        public string Lname { get; set; }
+        public int Age { get; set; }
+        public string BriefIntro { get; set; }
+        public TimeSpan Availablity { get; set; }
+    }
 }

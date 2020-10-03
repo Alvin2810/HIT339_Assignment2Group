@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\monsi\\Desktop\\Assignment_1\\Assignment1\\Assignment1.csproj": {}
+    "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment2\\Assignment1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\monsi\\Desktop\\Assignment_1\\Assignment1\\Assignment1.csproj": {
+    "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment2\\Assignment1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\monsi\\Desktop\\Assignment_1\\Assignment1\\Assignment1.csproj",
+        "projectUniqueName": "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment2\\Assignment1.csproj",
         "projectName": "Assignment1",
-        "projectPath": "C:\\Users\\monsi\\Desktop\\Assignment_1\\Assignment1\\Assignment1.csproj",
+        "projectPath": "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment2\\Assignment1.csproj",
         "packagesPath": "C:\\Users\\monsi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\monsi\\Desktop\\Assignment_1\\Assignment1\\obj\\",
+        "outputPath": "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
