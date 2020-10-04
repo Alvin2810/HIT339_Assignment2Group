@@ -7,33 +7,39 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Assignment_2.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Assignment_2.Data;
 
 namespace Assignment_2.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> _roleManager;
+
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager;
         }
 
         [BindProperty]
@@ -60,10 +66,45 @@ namespace Assignment_2.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+            [Display(Name = "First Name")]
+            public string Fname { get; set; }
+
+            [Display(Name = "Last Name")]
+            [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+            [Required]
+            public string Lname { get; set; }
+
+            [Display(Name = "Age")]
+            [Required]
+            public int Age { get; set; }
+
+            [Display(Name = "Street No")]
+            [Required]
+            public int StreetNumber { get; set; }
+
+            [Display(Name = "Street Name")]
+            [Required]
+            public string StreetName { get; set; }
+
+            [Display(Name = "Suburb")]
+            [Required]
+            public string Suburb { get; set; }
+
+            [Display(Name = "Country")]
+            [Required]
+            public string Country { get; set; }
+
+            [Display(Name = "Pincode")]
+            [Required]
+            public int Pincode { get; set; }
+            public string Name { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            ViewData["roles"] = _roleManager.Roles.ToList();
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -71,14 +112,20 @@ namespace Assignment_2.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
+            var role = _roleManager.FindByIdAsync(Input.Name).Result;
+
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { Id = Input.Email, UserName = Input.Email, Email = Input.Email, Fname = Input.Fname, Lname = Input.Lname, StreetNumber = Input.StreetNumber, StreetName = Input.StreetName, Suburb = Input.Suburb, Country = Input.Country, Pincode = Input.Pincode, Age = Input.Age };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+                    await _userManager.AddToRoleAsync(user, role.Name);
+
+
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -106,7 +153,7 @@ namespace Assignment_2.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-
+            ViewData["roles"] = _roleManager.Roles.ToList();
             // If we got this far, something failed, redisplay form
             return Page();
         }
