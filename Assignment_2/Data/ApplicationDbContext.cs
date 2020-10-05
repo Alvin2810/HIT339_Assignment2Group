@@ -13,5 +13,7 @@ namespace Assignment_2.Data
             : base(options)
         {
         }
+        public DbSet<Assignment_2.Models.Schedules> Schedules { get; set; }
+        public DbSet<Assignment_2.Models.MemberEnrol> MemberEnrol { get; set; }
     }
 }
