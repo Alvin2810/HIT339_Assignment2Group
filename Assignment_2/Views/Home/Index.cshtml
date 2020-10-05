@@ -1,8 +1,151 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Assignment_2.Viewmodel.ScheduleViewmodel>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> Rolemanager
+@{
+    ViewData["Title"] = "Schedules";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    if (this.User.IsInRole("Admin"))
+    {
+        <h1>All Enrolled Schedules</h1>
+    }
+    else
+    {
+        <h1>My Enrolled Schedules</h1>
+    }
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+
+                    @Html.DisplayNameFor(model => model.Date)
+
+                </th>
+                @if (this.User.IsInRole("Coach"))
+                {
+                    <th>
+
+                        @Html.DisplayNameFor(model => model.Member)
+
+                    </th>
+                }
+                else if (this.User.IsInRole("Member"))
+                {
+                    <th>
+
+                        @Html.DisplayNameFor(model => model.Coach)
+
+                    </th>
+                }
+                else
+                {
+                    <th>
+
+                        @Html.DisplayNameFor(model => model.Coach)
+
+                    </th>
+                    <th>
+
+                        @Html.DisplayNameFor(model => model.Member)
+
+                    </th>
+                }
+                <th>
+
+                    @Html.DisplayNameFor(model => model.Time)
+
+                </th>
+
+                <th>
+
+                    @Html.DisplayNameFor(model => model.Location)
+
+                </th>
+
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (this.User.IsInRole("Coach"))
+                {
+                    if (item.Coach == User.Identity.Name)
+                    {
+                        <tr>
+                            <td>
+                                @item.Date
+                            </td>
+                            <td>
+                                @item.Member
+                            </td>
+                            <td>
+                                @item.Time
+                            </td>
+                            <td>
+                                @item.Location
+                            </td>
+
+                        </tr>
+                    }
+                }
+
+                else if (this.User.IsInRole("Member"))
+                {
+                    if (item.Member == User.Identity.Name)
+                    {
+                        <tr>
+                            <td>
+                                @item.Date
+                            </td>
+                            <td>
+                                @item.CoachName
+                            </td>
+                            <td>
+                                @item.Time
+                            </td>
+                            <td>
+                                @item.Location
+                            </td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+
+                    <tr>
+                        <td>
+                            @item.Date
+                        </td>
+                        <td>
+                            @item.CoachName
+                        </td>
+                        <td>
+                            @item.Member
+                        </td>
+                        <td>
+                            @item.Time
+                        </td>
+                        <td>
+                            @item.Location
+                        </td>
+
+                    </tr>
+
+
+                }
+            }
+        </tbody>
+
+    </table>
+}
