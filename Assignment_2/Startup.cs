@@ -12,9 +12,9 @@ using Assignment_2.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Assignment1.Models;
+using Assignment_2.Models;
 
-namespace Assignment1
+namespace Assignment_2
 {
     public class Startup
     {

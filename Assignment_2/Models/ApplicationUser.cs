@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace Assignment1.Models
+namespace Assignment_2.Models
 {
     public class ApplicationUser : IdentityUser
     {

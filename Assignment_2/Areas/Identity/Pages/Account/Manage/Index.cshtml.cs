@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Assignment1.Models;
+using Assignment_2.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Assignment1.Areas.Identity.Pages.Account.Manage
+namespace Assignment_2.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {

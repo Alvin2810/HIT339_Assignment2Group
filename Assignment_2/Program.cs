@@ -10,7 +10,7 @@ using Assignment_2.Models;
 using Assignment_2;
 using Microsoft.AspNetCore.Identity;
 
-namespace Assignment1
+namespace Assignment_2
 {
     public class Program
     {
