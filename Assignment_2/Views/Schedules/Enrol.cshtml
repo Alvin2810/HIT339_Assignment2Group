@@ -1,5 +1,44 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@model Assignment_2.Models.Schedules
+
 @{
+    ViewData["Title"] = "Enrol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h1>Enrol to Schedule</h1>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Coach)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Coach)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+    </dl>
+
+    <form asp-action="Enrol">
+        <input type="submit" value="Enrol to Schedule" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
