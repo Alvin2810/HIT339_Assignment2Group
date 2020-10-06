@@ -116,6 +116,9 @@
                             <td>
                                 @item.Location
                             </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-id="@item.Member" >Unenrol</a>
+                            </td>
 
                         </tr>
                     }

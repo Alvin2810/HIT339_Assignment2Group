@@ -70,6 +70,35 @@ namespace Assignment1.Controllers
 
         }
 
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var enrol = await _context.MemberEnrol
+                .FirstOrDefaultAsync(m => m.Member == id);
+            if (enrol == null)
+            {
+                return NotFound();
+            }
+
+            return View(enrol);
+        }
+
+        // POST: Items/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+
+            var enrol = await _context.MemberEnrol.FirstOrDefaultAsync(m => m.Member == id);
+            _context.MemberEnrol.Remove(enrol);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
 
     }
 }

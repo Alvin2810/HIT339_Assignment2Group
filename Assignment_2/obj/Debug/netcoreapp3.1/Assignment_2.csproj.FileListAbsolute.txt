@@ -60,7 +60,6 @@ C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Assignme
 C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Assignment_2.RazorCoreGenerate.cache
 C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -411,3 +410,4 @@ C:\Users\raymo\Documents\GitHub\HIT339_Assignment2Group\Assignment_2\obj\Debug\n
 C:\Users\raymo\Documents\GitHub\HIT339_Assignment2Group\Assignment_2\obj\Debug\netcoreapp3.1\Assignment_2.dll
 C:\Users\raymo\Documents\GitHub\HIT339_Assignment2Group\Assignment_2\obj\Debug\netcoreapp3.1\Assignment_2.pdb
 C:\Users\raymo\Documents\GitHub\HIT339_Assignment2Group\Assignment_2\obj\Debug\netcoreapp3.1\Assignment_2.genruntimeconfig.cache
+C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Delete.cshtml.g.cs
