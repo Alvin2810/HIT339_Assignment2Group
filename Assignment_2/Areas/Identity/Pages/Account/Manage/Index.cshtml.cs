@@ -62,12 +62,14 @@ namespace Assignment_2.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            public string Brief { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            var brief = user.Brief;
             var firstName = user.Fname;
             var lastName = user.Lname;
             var aGe = user.Age;
@@ -83,6 +85,7 @@ namespace Assignment_2.Areas.Identity.Pages.Account.Manage
             Input = new InputModel
             {
                 PhoneNumber = phoneNumber,
+                Brief = brief,
                 Username = userName,
                 Fname = firstName,
                 Lname = lastName,
@@ -135,6 +138,12 @@ namespace Assignment_2.Areas.Identity.Pages.Account.Manage
             if (Input.Fname != firstName)
             {
                 user.Fname = Input.Fname;
+                await _userManager.UpdateAsync(user);
+            }
+            string brief = user.Brief;
+            if (Input.Brief != brief)
+            {
+                user.Brief = Input.Brief;
                 await _userManager.UpdateAsync(user);
             }
             string lastName = user.Lname;

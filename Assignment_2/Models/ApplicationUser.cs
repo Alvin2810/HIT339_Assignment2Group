@@ -29,6 +29,7 @@ namespace Assignment_2.Models
 
 
         public int Pincode { get; set; }
+        public string Brief { get; set; }
 
     }
 }
