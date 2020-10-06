@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment_2\\Assignment_2.csproj": {}
+    "C:\\Users\\raymo\\Documents\\GitHub\\HIT339_Assignment2Group\\Assignment_2\\Assignment_2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment_2\\Assignment_2.csproj": {
+    "C:\\Users\\raymo\\Documents\\GitHub\\HIT339_Assignment2Group\\Assignment_2\\Assignment_2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment_2\\Assignment_2.csproj",
+        "projectUniqueName": "C:\\Users\\raymo\\Documents\\GitHub\\HIT339_Assignment2Group\\Assignment_2\\Assignment_2.csproj",
         "projectName": "Assignment_2",
-        "projectPath": "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment_2\\Assignment_2.csproj",
-        "packagesPath": "C:\\Users\\monsi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\monsi\\Desktop\\Assignment2\\Assignment_2\\obj\\",
+        "projectPath": "C:\\Users\\raymo\\Documents\\GitHub\\HIT339_Assignment2Group\\Assignment_2\\Assignment_2.csproj",
+        "packagesPath": "C:\\Users\\raymo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\raymo\\Documents\\GitHub\\HIT339_Assignment2Group\\Assignment_2\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\monsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\raymo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -77,16 +73,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
