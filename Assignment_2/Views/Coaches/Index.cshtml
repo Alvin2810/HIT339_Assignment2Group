@@ -53,7 +53,9 @@
                     @item.id
                 </td>
                 <td>
-                    @item.Fname
+                
+                    <a asp-action="Details" asp-route-id="@item.id">@item.Fname</a>
+                
                 </td>
                 <td>
                     @item.Lname

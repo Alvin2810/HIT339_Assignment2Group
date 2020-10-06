@@ -54,5 +54,23 @@ namespace Assignment_2.Controllers
             }
 
         }
+
+        public IActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var users = (from r in _context.Users where r.Id == id select r);
+            if (users == null)
+            {
+                return NotFound();
+            }
+
+            return View(users.ToList());
+        }
+
+
     }
 }

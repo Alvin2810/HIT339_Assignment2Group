@@ -411,3 +411,4 @@ C:\Users\raymo\Documents\GitHub\HIT339_Assignment2Group\Assignment_2\obj\Debug\n
 C:\Users\raymo\Documents\GitHub\HIT339_Assignment2Group\Assignment_2\obj\Debug\netcoreapp3.1\Assignment_2.pdb
 C:\Users\raymo\Documents\GitHub\HIT339_Assignment2Group\Assignment_2\obj\Debug\netcoreapp3.1\Assignment_2.genruntimeconfig.cache
 C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Delete.cshtml.g.cs
+C:\Users\monsi\Desktop\Assignment2\Assignment_2\obj\Debug\netcoreapp3.1\Razor\Views\Coaches\Details.cshtml.g.cs

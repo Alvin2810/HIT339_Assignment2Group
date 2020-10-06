@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<Assignment_2.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Coach Bio";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fname)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Lname)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brief)
+        </dt>
+    </dl>
+    @foreach (var item in Model) {
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayFor(modelItem => item.Fname)
+    </dt>
+    <dt class="col-sm-2">
+        @Html.DisplayFor(modelItem => item.Lname)
+    </dt>
+    <dt class="col-sm-2">
+        @Html.DisplayFor(modelItem => item.Brief)
+    </dt>
+</dl>
+    }
+
+        <a asp-action="Index">Back to List</a>
+
+</div>
